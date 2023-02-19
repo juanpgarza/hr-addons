@@ -4,11 +4,14 @@
 {
     "name": "hr_ux",
     "summary": "",
-    "version": "12.0.1.0.0",
+    "version": "15.0.1.0.0",
     "category": "Human Resources",
     "website": "https://github.com/juanpgarza/hr-addons",
     "author": "juanpgarza",
-    "depends": ["hr_holidays"],
+    "license": "AGPL-3",
+    "depends": [
+                "hr_holidays",
+            ],
     "data": [      
         ],
     "installable": True,

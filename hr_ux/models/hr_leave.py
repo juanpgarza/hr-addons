@@ -13,27 +13,17 @@ class HrLeave(models.Model):
             delta = date_to - date_from
             return delta.days + 1
 
-    @api.multi
-    @api.depends('number_of_days')
-    def _compute_number_of_days_display(self):
-        for rec in self:
-            res = super(HrLeave,rec)._compute_number_of_days_display()
+    @api.depends('date_from', 'date_to', 'employee_id')
+    def _compute_number_of_days(self):
+        res = super(HrLeave,self)._compute_number_of_days()
+        for rec in self:            
+            # import pdb; pdb.set_trace()
             if rec.holiday_status_id.request_unit == 'day':
                 if rec.date_to and rec.date_from:                    
-                    rec.number_of_days_display = rec._calculate_days(rec.date_from,rec.date_to)
-                
-            return res
+                    rec.number_of_days = rec._calculate_days(rec.date_from,rec.date_to)
+                        
+        return res
 
-    @api.onchange('date_from', 'date_to', 'employee_id')
-    def _onchange_leave_dates(self):
-        super(HrLeave,self)._onchange_leave_dates()
-        if self.holiday_status_id.request_unit == 'day':
-            if self.date_from and self.date_to:
-                self.number_of_days = self._calculate_days(self.date_from,self.date_to)
-            else:
-                self.number_of_days = 0
-
-    @api.multi
     @api.depends('number_of_hours_display', 'number_of_days_display')
     def _compute_duration_display(self):
         for rec in self:
