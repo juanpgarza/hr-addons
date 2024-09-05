@@ -20,7 +20,9 @@ class HrAttendance(models.Model):
             # if rec.employee_id.contract_id:
             # modificacion para que no dependa del contrato
             # todo: elegir el calendario que corresponda para la fecha (módulo de OCA con histórico de calendario para el empleado)
-            work_schedule = rec.sudo().employee_id.resource_calendar_id
+            # if rec.id == 480:
+            # import pdb; pdb.set_trace()
+            work_schedule = rec.sudo().employee_id.with_context(date=rec.check_in.date()).current_calendar_id
             for schedule in work_schedule.sudo().attendance_ids:
                 if schedule.dayofweek == str(week_day) and schedule.day_period == 'morning':
                     work_from = schedule.hour_from
@@ -39,8 +41,8 @@ class HrAttendance(models.Model):
                     start_date = datetime.strptime(result, "%H:%M").time()
                     t1 = timedelta(hours=check_in_date.hour, minutes=check_in_date.minute)
                     t2 = timedelta(hours=start_date.hour, minutes=start_date.minute)
-                    if rec.id == 480:
-                        import pdb; pdb.set_trace()
+                    # if rec.id == 480:
+                    #     import pdb; pdb.set_trace()
                     if check_in_date > start_date:
                         final = t1 - t2
                         rec.sudo().late_check_in = final.total_seconds() / 60

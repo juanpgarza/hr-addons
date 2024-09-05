@@ -10,7 +10,7 @@
     'website': 'https://www.cybrosys.com',
     'maintainer': 'Cybrosys Techno Solutions',
     'category': 'Human Resources',
-    'depends': ['hr_attendance'],
+    'depends': ['hr_attendance', 'hr_employee_calendar_planning'],
     'data': [
         'views/res_config_settings.xml',
         'views/hr_attendance_view.xml',
