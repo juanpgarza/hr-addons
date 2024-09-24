@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <!-- Form View -->
+        <record id="hr_journal_entry_view_form" model="ir.ui.view">
+            <field name="name">hr.journal.entry.form</field>
+            <field name="model">hr.journal.entry</field>
+            <field name="arch" type="xml">
+                <form string="Novedad diaria">
+                    <sheet>
+                        <group>
+                            <field name="employee_id"/>
+                            <field name="date"/>
+                            <field name="leave_id"/>
+                            <field name="attendance_id"/>
+                            <field name="check_in"/>
+                            <field name="check_out"/>
+                            <field name="worked_hours"/>
+                            <field name="note"/>
+                        </group>
+                    </sheet>
+                </form>
+
+            </field>
+        </record>
+
+        <!-- Tree View -->
+        <record id="hr_journal_entry_view_list" model="ir.ui.view">
+            <field name="name">hr.journal.entry.tree</field>
+            <field name="model">hr.journal.entry</field>
+            <field name="arch" type="xml">
+                <tree string="Novedad diaria">
+                    <field name="employee_id"/>
+                    <field name="date"/>
+                    <field name="leave_id"/>
+                    <field name="attendance_id"/>
+                    <field name="check_in"/>
+                    <field name="check_out"/>
+                    <field name="worked_hours"/>
+                    <field name="note"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="hr_journal_entry_view_search" model="ir.ui.view">
+            <field name="name">hr.journal.entry.search</field>
+            <field name="model">hr.journal.entry</field>
+            <field name="arch" type="xml">
+                <search string="Novedad diaria">
+                    <group expand="0" string="Group By">
+                        <filter string="Empleado" name="group_employee" domain="[]"
+                                context="{'group_by':'employee_id'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+
+        <!-- Actions -->
+        <record id="hr_journal_entry_action" model="ir.actions.act_window">
+            <field name="name">Novedad diaria</field>
+            <field name="res_model">hr.journal.entry</field>
+            <field name="view_mode">tree,form</field>
+            <field name="context">{
+            'search_default_group_employee': 1,
+            }
+        </field>
+        </record>
+
+
+        <!-- MenuItems -->
+        <menuitem id="menu_hr_journal_entry" name="Novedad diaria"
+                  parent="hr_attendance.menu_hr_attendance_root"
+                  action="hr_journal_entry_action"
+                  sequence="22"
+                  groups="hr.group_hr_user"/>
+
+    </data>
+</odoo>

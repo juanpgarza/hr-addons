@@ -18,7 +18,9 @@
                 "employee_late_check_in",
                 "hr_holidays_public",
             ],
-    "data": [      
+    "data": [     
+        'security/ir.model.access.csv',
+        'views/hr_journal_entry_views.xml',
         ],
     "installable": True,
 }
