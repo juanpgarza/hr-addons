@@ -10,7 +10,7 @@
                     type="object"
                     class="oe_stat_button"
                     icon="fa-clock-o">
-                <field name="late_check_in_count" widget="statinfo" string="Late Check-In"/>
+                <field name="late_check_in_count" widget="statinfo" string="Llegadas tarde"/>
             </button>
         </div>
         </field>
@@ -27,7 +27,7 @@
                     type="object"
                     class="oe_stat_button"
                     icon="fa-clock-o">
-                <field name="late_check_in_count" widget="statinfo" string="Late Check-In"/>
+                <field name="late_check_in_count" widget="statinfo" string="Llegadas tarde"/>
             </button>
         </div>
         </field>

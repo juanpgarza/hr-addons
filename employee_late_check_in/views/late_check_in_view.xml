@@ -17,14 +17,14 @@
             <field name="name">late.check_in.form</field>
             <field name="model">late.check_in</field>
             <field name="arch" type="xml">
-                <form string="Late Check-in" create="false">
+                <form string="Llegadas Tarde" create="false">
                     <header>
                         <field name="state" widget="statusbar"
                                statusbar_visible="f_approve,approved,done"/>
-                        <button name="approve" string="Approve"
+                        <button name="approve" string="Aprobar"
                                 type="object" class="btn-primary"
                                 attrs="{'invisible': [('state', '!=', 'draft')]}" groups="hr.group_hr_manager"/>
-                        <button name="reject" string="Refuse" type="object"
+                        <button name="reject" string="Rechazar" type="object"
                                 class="btn-primary"
                                 attrs="{'invisible': [('state', 'not in', ['draft'])]}" groups="hr.group_hr_manager"/>
                     </header>
@@ -56,9 +56,12 @@
             <field name="name">late.check_in.search.view</field>
             <field name="model">late.check_in</field>
             <field name="arch" type="xml">
-                <search string="Search Late check-in records">
+                <search string="Llegadas Tarde">
+                    <field name="employee_id"/>
+                    <separator/>
+                    <filter string="Fecha" name="date_filter_2" date="date" default_period="last_month"/>
                     <group expand="0" string="Group By">
-                        <filter string="Employee" name="group_employee" domain="[]"
+                        <filter string="Empleado" name="group_employee" domain="[]"
                                 context="{'group_by':'employee_id'}"/>
                     </group>
                 </search>
@@ -70,7 +73,7 @@
             <field name="name">late.check_in.tree</field>
             <field name="model">late.check_in</field>
             <field name="arch" type="xml">
-                <tree string="Late Check-in">
+                <tree string="Llegadas Tarde">
                     <field name="name"/>
                     <field name="employee_id"/>
                     <field name="late_minutes"/>
@@ -79,10 +82,12 @@
             </field>
         </record>
 
+
+
         <!-- Actions -->
         <!-- overtime -->
         <record id="late_check_in_action" model="ir.actions.act_window">
-            <field name="name">Late Check-in</field>
+            <field name="name">Llegadas Tarde</field>
             <field name="res_model">late.check_in</field>
             <field name="view_mode">tree,form</field>
             <field name="context">{
@@ -93,7 +98,7 @@
 
 
         <!-- MenuItems -->
-        <menuitem id="menu_late_check_in" name="Late Check-in"
+        <menuitem id="menu_late_check_in" name="Llegadas Tarde"
                   parent="hr_attendance.menu_hr_attendance_root"
                   action="late_check_in_action"
                   sequence="21"

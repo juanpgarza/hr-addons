@@ -5,16 +5,15 @@ from odoo import models, fields, api
 class LateCheckIn(models.Model):
     _name = 'late.check_in'
 
-    name = fields.Char()
-    employee_id = fields.Many2one('hr.employee', string="Employee")
-    late_minutes = fields.Integer(string="Late Minutes")
-    date = fields.Date(string="Date")
-    state = fields.Selection([('draft', 'Draft'),
-                              ('approved', 'Approved'),
-                              ('refused', 'Refused'),
-                              ('deducted', 'Deducted')], string="state",
+    name = fields.Char(string="Nombre")
+    employee_id = fields.Many2one('hr.employee', string="Empleado")
+    late_minutes = fields.Integer(string="Minutos tarde")
+    date = fields.Date(string="Fecha")
+    state = fields.Selection([('draft', 'Borrador'),
+                              ('approved', 'Aprobado'),
+                              ('refused', 'Rechazado')], string="Estado",
                              default="draft")
-    attendance_id = fields.Many2one('hr.attendance', string='attendance')
+    attendance_id = fields.Many2one('hr.attendance', string='Asistencia')
 
     # current_user_boolean = fields.Boolean()
     @api.model

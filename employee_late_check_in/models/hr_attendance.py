@@ -10,7 +10,7 @@ from odoo import models, fields, api
 class HrAttendance(models.Model):
     _inherit = 'hr.attendance'
 
-    late_check_in = fields.Integer(string="Late Check-in(Minutes)", compute="get_late_minutes")
+    late_check_in = fields.Integer(string="Llegada Tarde (Minutos)", compute="get_late_minutes")
 
     def get_late_minutes(self):
         for rec in self:

@@ -2,7 +2,7 @@
 <odoo>
     <data>
         <record forcecreate="True" id="ir_cron_late_check_in" model="ir.cron">
-            <field name="name">Attendance: Late Check-in</field>
+            <field name="name">Asistencia: Llegada tarde</field>
             <field name="model_id" ref="model_hr_attendance"/>
             <field name="state">code</field>
             <field name="code">model.late_check_in_records()</field>
