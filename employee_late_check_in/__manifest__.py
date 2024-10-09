@@ -10,7 +10,7 @@
     "license": "AGPL-3",
     'depends': [
             'hr_attendance', 
-            'hr_employee_calendar_planning' # https://github.com/OCA/hr
+            # 'hr_employee_calendar_planning' # https://github.com/OCA/hr
             ],
     'data': [
         'views/res_config_settings.xml',

@@ -22,7 +22,7 @@ class HrAttendance(models.Model):
             # todo: elegir el calendario que corresponda para la fecha (módulo de OCA con histórico de calendario para el empleado)
             # if rec.id == 480:
             # import pdb; pdb.set_trace()
-            work_schedule = rec.sudo().employee_id.with_context(date=rec.check_in.date()).current_calendar_id
+            work_schedule = rec.sudo().employee_id.with_context(date=rec.check_in.date()).resource_calendar_id
             for schedule in work_schedule.sudo().attendance_ids:
                 if schedule.dayofweek == str(week_day) and schedule.day_period == 'morning':
                     work_from = schedule.hour_from
