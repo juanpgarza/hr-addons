@@ -14,7 +14,7 @@
 #    but WITHOUT ANY WARRANTY; without even the implied warranty of
 #    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 #    GNU Affero General Public License for more details.
-#
+#download_attendance
 #    You should have received a copy of the GNU Affero General Public License
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
@@ -126,7 +126,7 @@ class ZkMachine(models.Model):
             zk_port = info.port_no
             timeout = 15
             try:
-                zk = ZK(machine_ip, port=zk_port, timeout=timeout, password=0, force_udp=False, ommit_ping=False)
+                zk = ZK(machine_ip, port=zk_port, timeout=timeout, password=0, force_udp=False, ommit_ping=True)
             except NameError:
                 raise UserError(_("Pyzk module not Found. Please install it with 'pip3 install pyzk'."))
             conn = self.device_connect(zk)
