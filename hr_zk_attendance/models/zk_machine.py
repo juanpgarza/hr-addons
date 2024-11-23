@@ -48,7 +48,8 @@ class HrAttendance(models.Model):
 
 class ZkMachine(models.Model):
     _name = 'zk.machine'
-    
+    _description = 'ZkMachine'
+
     name = fields.Char(string='Machine IP', required=True)
     port_no = fields.Integer(string='Port No', required=True)
     address_id = fields.Many2one('res.partner', string='Working Address')

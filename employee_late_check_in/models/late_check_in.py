@@ -4,6 +4,7 @@ from odoo import models, fields, api
 
 class LateCheckIn(models.Model):
     _name = 'late.check_in'
+    _description = 'Llegadas Tarde'
 
     name = fields.Char(string="Nombre")
     employee_id = fields.Many2one('hr.employee', string="Empleado")
