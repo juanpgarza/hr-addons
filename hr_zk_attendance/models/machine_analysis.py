@@ -23,8 +23,12 @@ from odoo import tools
 from odoo import models, fields, api, _
 
 
-class HrEmployee(models.Model):
-    _inherit = 'hr.employee'
+# class HrEmployee(models.Model):
+# Tengo que agregar el campo device_id en hr.employee.base
+# porque sino da error en src/addons/hr/models/hr_employee.py:170, dice que no existe el campo device_id
+# en hr.employee.public. hr.employee.public y hr.employee heredan del modelo abstracto hr.employee.base
+class HrEmployeeBase(models.AbstractModel):
+    _inherit = 'hr.employee.base'
 
     device_id = fields.Char(string='Biometric Device ID')
 
