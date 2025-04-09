@@ -22,5 +22,5 @@
         'security/ir.model.access.csv',
         'views/hr_journal_entry_views.xml',
         ],
-    "installable": True,
+    "installable": False,
 }
