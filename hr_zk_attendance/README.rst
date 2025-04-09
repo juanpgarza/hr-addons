@@ -1,18 +1,13 @@
-Biometric Device Integration v15
-================================
+.. image:: https://img.shields.io/badge/license-AGPL--3-blue.svg
+    :target: https://www.gnu.org/licenses/agpl-3.0-standalone.html
+    :alt: License: AGPL-3
+
+Biometric Device Integration
+============================
 This Cybrosys's module integrates Odoo attendance with biometric device attendance.
 
-Features
-========
-* Integrates biometric device(Face+Thumb) with HR attendance.
-* Managing attendance automatically
-* Keeps zk machine history in Odoo
-* Option to configure multiple zk devices
-* Option to clear all zk history from both device and Odoo
-
-Technical Notes
-===============
-Used Libraries:
+Configuration
+=============
 
 *This integration is only applicable for the the device ZKteco model 'uFace 202' & 'iFace990'
 * zklib
@@ -33,17 +28,44 @@ Clients have reported that the module works well with the following machine :
 * UA760 (ZKteco)
 * MB10 (ZKteco
 
-Author
-=======
-* Cybrosys Techno Solutions <https://www.cybrosys.com>
+License
+-------
+General Public License, Version 3 (AGPL-3).
+(https://www.gnu.org/licenses/agpl-3.0-standalone.html)
+
+Company
+-------
+* `Cybrosys Techno Solutions <https://cybrosys.com/>`__
 
 Credits
 =======
-Developer: Niyas Raphy @ Cybrosys, odoo@cybrosys.com V11
-Developer: Jesni Banu @ cybrosys, odoo@cybrosys.com  V10
-Developer: Basith @ Cybrosys, odoo@cybrosys.com     V12
-Developer: Varsha Vivek @ Cybrosys, odoo@cybrosys.com V13
-Developer: Ijaz Ahammed @ Cybrosys, odoo@cybrosys.com V14
-Developer: Noushid Khan @ Cybrosys, odoo@cybrosys.com V15
-Developer: Mostafa Shokiel , mostafa.shokiel@gmail.com
+* Developers: (V10) Jesni Banu @ cybrosys,
+              (V11) Niyas Raphy @ Cybrosys,
+              (V12) Basith @ Cybrosys,
+              (V13) Varsha Vivek @ Cybrosys,
+              (V14) Ijaz Ahammed @ Cybrosys,
+              (V15) Noushid Khan @ Cybrosys,
+              (V16) Minhaj T @ Cybrosys,
+              (V17) Ammu Raj @ Cybrosys, Contact: odoo@cybrosys.com
 
+Contacts
+--------
+* Mail Contact : odoo@cybrosys.com
+* Website : https://cybrosys.com
+
+Bug Tracker
+-----------
+Bugs are tracked on GitHub Issues. In case of trouble, please check there if your issue has already been reported.
+
+Maintainer
+==========
+.. image:: https://cybrosys.com/images/logo.png
+   :target: https://cybrosys.com
+
+This module is maintained by Cybrosys Technologies.
+
+For support and more information, please visit `Our Website <https://cybrosys.com/>`__
+
+Further information
+===================
+HTML Description: `<static/description/index.html>`__

@@ -19,7 +19,12 @@
 #    If not, see <http://www.gnu.org/licenses/>.
 #
 ################################################################################
-from . import biometric_device_details
-from . import zk_machine_attendance
-from . import daily_attendance
-from . import hr_employee
+from odoo import fields, models
+
+
+class HrEmployee(models.Model):
+    """Inherit the model to add field"""
+    _inherit = 'hr.employee'
+
+    device_id_num = fields.Char(string='Biometric Device ID',
+                                help="Give the biometric device id")
