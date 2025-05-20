@@ -33,7 +33,7 @@ class ZkMachineAttendance(models.Model):
         """Overriding the __check_validity function for employee attendance."""
         pass
 
-    device_id_num = fields.Char(string='Biometric Device ID',
+    device_id = fields.Char(string='Biometric Device ID',
                                 help="The ID of the Biometric Device")
     punch_type = fields.Selection([('0', 'Check In'), ('1', 'Check Out'),
                                    ('2', 'Break Out'), ('3', 'Break In'),

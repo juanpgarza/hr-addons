@@ -189,15 +189,15 @@ class BiometricDeviceDetails(models.Model):
                         for uid in user:
                             if uid.user_id == each.user_id:
                                 get_user_id = self.env['hr.employee'].search(
-                                    [('device_id_num', '=', each.user_id)])
+                                    [('device_id', '=', each.user_id)])
                                 if get_user_id:
                                     duplicate_atten_ids = zk_attendance.search(
-                                        [('device_id_num', '=', each.user_id),
+                                        [('device_id', '=', each.user_id),
                                          ('punching_time', '=', atten_time)])
                                     if not duplicate_atten_ids:
                                         zk_attendance.create({
                                             'employee_id': get_user_id.id,
-                                            'device_id_num': each.user_id,
+                                            'device_id': each.user_id,
                                             'attendance_type': str(each.status),
                                             'punch_type': str(each.punch),
                                             'punching_time': atten_time,
@@ -228,12 +228,12 @@ class BiometricDeviceDetails(models.Model):
                                                     })
                                 else:
                                     employee = self.env['hr.employee'].create({
-                                        'device_id_num': each.user_id,
+                                        'device_id': each.user_id,
                                         'name': uid.name
                                     })
                                     zk_attendance.create({
                                         'employee_id': employee.id,
-                                        'device_id_num': each.user_id,
+                                        'device_id': each.user_id,
                                         'attendance_type': str(each.status),
                                         'punch_type': str(each.punch),
                                         'punching_time': atten_time,
